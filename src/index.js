@@ -25,4 +25,8 @@ function makeSnowflake() {
 
 const snowflakes = Array.from({ length: SNOWFLAKE_COUNT }).map(makeSnowflake);
 
-snowflakes.forEach((snowflake) => { body.appendChild(snowflake); });
+snowflakes.forEach((snowflake, index) => {
+  setTimeout(() => {
+    body.appendChild(snowflake);
+  }, Math.random() * 500 * index);
+});
